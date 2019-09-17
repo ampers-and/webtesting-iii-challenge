@@ -18,3 +18,20 @@ describe ('<Dashboard />', () => {
 test('Render Dashboard', () => {
     render (<Dashboard />);
 })
+
+test('should match snapshot', () => {
+    expect(render(<Dashboard />)).toMatchSnapshot();
+});
+
+
+//Initial State Display
+
+test('contains display and controls', () => {
+    const { getByText } = render(<Dashboard />)
+
+    getByText(/Unlocked/i);
+    getByText(/Open/i);
+
+    getByText(/Close Gate/i);
+    getByText(/Lock Gate/i);
+})
