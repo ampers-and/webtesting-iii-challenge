@@ -17,15 +17,15 @@ test('should match snapshot', () => {
 
 
 test('Control Buttons', () => {
-    const locked = jest.fn();
-    const closed = jest.fn();
+    // const locked = jest.fn();
+    // const closed = jest.fn();
     const toggleLocked = jest.fn();
     const toggleClosed = jest.fn();
     
     const { getByText } = render(
             <Controls
-                locked={locked}
-                closed={closed}
+                locked={true}
+                closed={true}
                 toggleLocked={toggleLocked}
                 toggleClosed={toggleClosed}
             />);
@@ -34,9 +34,26 @@ test('Control Buttons', () => {
     const gateButton = getByText(/Open Gate/i);
     
     fireEvent.click(lockButton);
-    fireEvent.click(gateButton);
+    // fireEvent.click(gateButton);
     expect(toggleLocked).toHaveBeenCalled();
-    // expect(toggleClosed).toHaveBeenCalled(); <-- doesn't work?
+    // expect(toggleClosed).toHaveBeenCalled();
     
     });
     
+    test('Control Buttons', () => {
+        const toggleClosed = jest.fn();
+        
+        const { getByText } = render(
+                <Controls
+                    closed= {true}
+                    toggleClosed={toggleClosed}
+                />);
+        
+        const gateButton = getByText(/Open Gate/i);
+        
+        // fireEvent.click(lockButton);
+        fireEvent.click(gateButton);
+        // expect(toggleLocked).toHaveBeenCalled();
+        expect(toggleClosed).toHaveBeenCalled();
+        
+        });
