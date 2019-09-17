@@ -15,6 +15,8 @@ describe ('<Dashboard />', () => {
 })
 */}
 
+//Dashboard Render
+
 test('Render Dashboard', () => {
     render (<Dashboard />);
 })
