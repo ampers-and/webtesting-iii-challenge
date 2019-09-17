@@ -35,3 +35,14 @@ test('contains display and controls', () => {
     getByText(/Close Gate/i);
     getByText(/Lock Gate/i);
 })
+
+// test('Gate Closes on Close Gate button', () => {
+//     const closed = jest.fn();
+//     const { getByText } = render(<Dashboard closed={closed} />);
+
+//     const closeGateButton = getByText(/Close Gate/i);
+
+//     fireEvent.click(closeGateButton);
+
+//     expect(closed).toHaveBeenCalled();
+// })
